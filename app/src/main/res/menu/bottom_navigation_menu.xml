@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/item_1"
+        android:id="@+id/tab_one"
         android:enabled="true"
         android:icon="@drawable/round_sports_gymnastics_24"
         android:title="Физ. нагрузки"/>
     <item
-        android:id="@+id/item_2"
+        android:id="@+id/tab_two"
         android:enabled="true"
         android:icon="@drawable/baseline_spatial_audio_off_24"
         android:title="Скороговорки"/>
