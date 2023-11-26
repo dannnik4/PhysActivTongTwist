@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Set the initial fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, new PhysActivTab());
         transaction.commit();
