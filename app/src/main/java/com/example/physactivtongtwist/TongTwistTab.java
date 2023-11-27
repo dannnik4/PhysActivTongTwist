@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class TongTwistTab extends Fragment {
@@ -18,7 +19,18 @@ public class TongTwistTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tongtwist_layout, container, false);
-        TextView textView = view.findViewById(R.id.textView2);
+
+        TextView textView = view.findViewById(R.id.WidgetText);
+        Button createWidgetButton = view.findViewById(R.id.WidgetButton);
+
+        createWidgetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle the button click, e.g., create a new widget
+                // You can add your logic here
+            }
+        });
+
         return view;
     }
 }
