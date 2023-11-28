@@ -26,8 +26,6 @@ public class PhysActivTab extends Fragment {
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle the button click, e.g., create a new widget
-                // You can add your logic here
             }
         });
 
