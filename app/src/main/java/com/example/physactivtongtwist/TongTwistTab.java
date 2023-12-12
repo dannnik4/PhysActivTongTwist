@@ -27,7 +27,6 @@ public class TongTwistTab extends Fragment {
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle the button click, e.g., open a dialog
                 showWidgetDialog();
             }
         });
