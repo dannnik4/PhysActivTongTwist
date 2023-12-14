@@ -38,8 +38,8 @@ public class TongTwistTab extends Fragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("New Widget")
                 .setMessage("This is your new widget!")
-                .setPositiveButton("OK", null) // You can add a positive button action here
-                .setNegativeButton("Cancel", null) // You can add a negative button action here
+                .setPositiveButton("OK", null)
+                .setNegativeButton("Cancel", null)
                 .show();
     }
 }
