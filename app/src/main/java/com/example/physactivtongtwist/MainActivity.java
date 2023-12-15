@@ -1,5 +1,6 @@
 package com.example.physactivtongtwist;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -42,6 +43,21 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, new PhysActivTab());
+        transaction.commit();
+    }
+
+    public void showWidgetDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("New Widget")
+                .setMessage("This is your new widget!")
+                .setPositiveButton("OK", null)
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment);
         transaction.commit();
     }
 }
