@@ -48,10 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void showWidgetDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("New Widget")
-                .setMessage("This is your new widget!")
-                .setPositiveButton("OK", null)
-                .setNegativeButton("Cancel", null)
+        builder.setTitle("Новый виджет")
+                .setPositiveButton("Создать", null)
+                .setNegativeButton("Отменить", null)
                 .show();
     }
 
