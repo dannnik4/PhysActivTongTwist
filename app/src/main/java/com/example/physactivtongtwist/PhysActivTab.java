@@ -25,19 +25,10 @@ public class PhysActivTab extends Fragment {
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showWidgetDialog();
+                ((MainActivity) requireActivity()).showWidgetDialog();
             }
         });
 
         return view;
-    }
-
-    private void showWidgetDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-        builder.setTitle("New Widget")
-                .setMessage("This is your new widget!")
-                .setPositiveButton("OK", null)
-                .setNegativeButton("Cancel", null)
-                .show();
     }
 }
