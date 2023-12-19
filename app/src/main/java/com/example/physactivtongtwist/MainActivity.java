@@ -25,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment;
                 switch (item.getItemId()) {
-                    case R.id.tab_one:
+                    case R.id.physactivtab:
                         fragment = new PhysActivTab();
                         break;
-                    case R.id.tab_two:
+                    case R.id.tongtwisttab:
                         fragment = new TongTwistTab();
                         break;
                     default:
