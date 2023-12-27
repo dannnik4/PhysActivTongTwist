@@ -36,7 +36,6 @@ public class PhysActivTab extends Fragment {
     }
 
     private void addWidget(String widgetText) {
-        // Создать новую запись и добавить ее куда-то на экран
         View widgetView = LayoutInflater.from(requireContext()).inflate(R.layout.widget_item, null);
         TextView itemText = widgetView.findViewById(R.id.itemText);
         itemText.setText(widgetText);
