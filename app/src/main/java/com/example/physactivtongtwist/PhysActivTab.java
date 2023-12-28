@@ -40,7 +40,6 @@ public class PhysActivTab extends Fragment {
         TextView itemText = widgetView.findViewById(R.id.itemText);
         itemText.setText(widgetText);
 
-        // Добавить виджет в контейнер
         widgetContainer.addView(widgetView);
     }
 }
