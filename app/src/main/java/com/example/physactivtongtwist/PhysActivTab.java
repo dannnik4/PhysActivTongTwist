@@ -21,8 +21,6 @@ public class PhysActivTab extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.physactiv_layout, container, false);
 
-//        widgetContainer = view.findViewById(R.id.widgetContainer);
-
         Button createWidgetButton = view.findViewById(R.id.WidgetButton);
 
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
