@@ -26,7 +26,7 @@ public class PhysActivTab extends Fragment {
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ((MainActivity) requireActivity()).showWidgetDialog();
             }
         });
 
