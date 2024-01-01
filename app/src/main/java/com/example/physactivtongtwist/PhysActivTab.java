@@ -11,8 +11,6 @@ import androidx.fragment.app.Fragment;
 
 public class PhysActivTab extends Fragment {
 
-    private LinearLayout widgetContainer;
-
     public PhysActivTab() {
     }
 
@@ -32,12 +30,4 @@ public class PhysActivTab extends Fragment {
 
         return view;
     }
-
-//    private void addWidget(String widgetText) {
-//        View widgetView = LayoutInflater.from(requireContext()).inflate(R.layout.widget_item, null);
-//        TextView itemText = widgetView.findViewById(R.id.itemText);
-//        itemText.setText(widgetText);
-//
-//        widgetContainer.addView(widgetView);
-//    }
 }
