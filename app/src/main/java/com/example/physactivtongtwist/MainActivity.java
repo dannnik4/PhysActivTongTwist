@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,13 +48,21 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    public void showWidgetDialog() {
+    public void showWidgetDialog(final WidgetDialogCallback callback) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.widget_text, null);
+        builder.setView(dialogView);
+
+        EditText WidgetText = dialogView.findViewById(R.id.WidgetText);
+
         builder.setTitle("Новый виджет")
                 .setPositiveButton("Создать", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        // Передать текст из диалога в колбэк
+                        if (callback != null) {
+                            callback.onPositiveClick(WidgetText.getText().toString());
+                        }
                     }
                 })
                 .setNegativeButton("Отменить", null)
