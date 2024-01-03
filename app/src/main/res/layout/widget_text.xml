@@ -5,9 +5,12 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/itemText"
+    <EditText
+        android:id="@+id/WidgetText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"/>
+        android:hint="Введите текст"
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        android:gravity="top"/>
 </LinearLayout>
