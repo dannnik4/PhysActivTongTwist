@@ -2,6 +2,7 @@ package com.example.physactivtongtwist;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -59,9 +60,10 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Создать", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // Передать текст из диалога в колбэк
+                        String widgetText = WidgetText.getText().toString();
+                        saveWidgetText(widgetText);
                         if (callback != null) {
-                            callback.onPositiveClick(WidgetText.getText().toString());
+                            callback.onPositiveClick(widgetText);
                         }
                     }
                 })
@@ -73,5 +75,12 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, fragment);
         transaction.commit();
+    }
+
+    private void saveWidgetText(String text) {
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("widgetText", text);
+        editor.apply();
     }
 }
