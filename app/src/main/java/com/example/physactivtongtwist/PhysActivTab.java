@@ -1,5 +1,8 @@
 package com.example.physactivtongtwist;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +24,10 @@ public class PhysActivTab extends Fragment {
 
         TextView textView = view.findViewById(R.id.WidgetText);
         Button createWidgetButton = view.findViewById(R.id.WidgetButton);
+
+        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        String savedText = preferences.getString("widgetText", "");
+        textView.setText(savedText);
 
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
