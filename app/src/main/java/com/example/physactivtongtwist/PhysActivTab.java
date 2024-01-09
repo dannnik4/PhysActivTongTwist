@@ -35,18 +35,15 @@ public class PhysActivTab extends Fragment {
                 ((MainActivity) requireActivity()).showWidgetDialog(new WidgetDialogCallback() {
                     @Override
                     public void onPositiveClick(String widgetText) {
-                        // Создать новый блок текста и добавить в список
                         TextBlock textBlock = new TextBlock(widgetText, currentBlockId++);
                         textBlocks.add(textBlock);
 
-                        // Отобразить блоки текста в TextView
                         displayTextBlocks();
                     }
                 });
             }
         });
 
-        // Загрузить блоки текста при создании фрагмента
         loadTextBlocks();
 
         return view;
