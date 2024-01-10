@@ -71,12 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    private void replaceFragment(Fragment fragment) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, fragment);
-        transaction.commit();
-    }
-
     private void saveWidgetText(String text) {
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
