@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    public void showWidgetDialog(final WidgetDialogCallback callback) {
+    public void showWidgetDialog(final WidgetDialogCallback callback, final String tabIndex) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.widget_text, null);
         builder.setView(dialogView);
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String widgetText = WidgetText.getText().toString();
-                        saveWidgetText(widgetText);
+                        saveWidgetText(widgetText, tabIndex);
                         if (callback != null) {
                             callback.onPositiveClick(widgetText);
                         }
@@ -71,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    private void saveWidgetText(String text) {
+    private void saveWidgetText(String text, String tabIndex) {
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("widgetText", text);
+        editor.putString("widgetText_" + tabIndex, text);
         editor.apply();
     }
 }
