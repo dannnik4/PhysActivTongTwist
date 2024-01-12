@@ -35,12 +35,9 @@ public class PhysActivTab extends Fragment {
                 ((MainActivity) requireActivity()).showWidgetDialog(new WidgetDialogCallback() {
                     @Override
                     public void onPositiveClick(String widgetText) {
-                        TextBlock textBlock = new TextBlock(widgetText, currentBlockId++);
-                        textBlocks.add(textBlock);
-
-                        displayTextBlocks();
+                        textView.setText(widgetText);
                     }
-                });
+                }, "PhysActivTab");
             }
         });
 
