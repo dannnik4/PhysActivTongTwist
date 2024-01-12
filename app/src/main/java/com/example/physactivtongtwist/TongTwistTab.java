@@ -32,7 +32,7 @@ public class TongTwistTab extends Fragment {
                     public void onPositiveClick(String widgetText) {
                         textView.setText(widgetText);
                     }
-                });
+                }, "TongTwistTab");
             }
         });
 
