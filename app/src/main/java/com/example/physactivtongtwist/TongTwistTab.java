@@ -17,8 +17,6 @@ import java.util.List;
 public class TongTwistTab extends Fragment {
 
     private TextView textView;
-    private List<TextBlock> textBlocks = new ArrayList<>();
-    private int currentBlockId = 0;
 
     public TongTwistTab() {
     }
@@ -44,19 +42,5 @@ public class TongTwistTab extends Fragment {
         });
 
         return view;
-    }
-
-    private void displayTextBlocks() {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        for (TextBlock textBlock : textBlocks) {
-            stringBuilder.append("Block ").append(textBlock.getId()).append(": ").append(textBlock.getText()).append("\n");
-        }
-
-        textView.setText(stringBuilder.toString());
-    }
-
-    private void loadTextBlocks() {
-        displayTextBlocks();
     }
 }
