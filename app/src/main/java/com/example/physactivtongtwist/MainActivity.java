@@ -71,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    private void saveWidgetText(String text, String tabIndex) {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("widgetText_" + tabIndex, text);
-        editor.apply();
-    }
+//    private void saveWidgetText(String text, String tabIndex) {
+//        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+//        SharedPreferences.Editor editor = preferences.edit();
+//        editor.putString("widgetText_" + tabIndex, text);
+//        editor.apply();
+//    }
 }
