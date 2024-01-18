@@ -18,9 +18,6 @@ public class TongTwistTab extends Fragment {
 
     private TextView textView;
 
-    public TongTwistTab() {
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
