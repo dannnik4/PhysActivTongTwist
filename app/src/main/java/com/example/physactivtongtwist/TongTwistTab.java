@@ -23,7 +23,7 @@ public class TongTwistTab extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tongtwist_layout, container, false);
 
-        TextView textView = view.findViewById(R.id.WidgetText);
+        textView = view.findViewById(R.id.WidgetText);
         Button createWidgetButton = view.findViewById(R.id.WidgetButton);
 
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
