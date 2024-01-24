@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         EditText WidgetText = dialogView.findViewById(R.id.WidgetText);
 
-        builder.setTitle("Новый виджет")
+        builder.setTitle("Добавить")
                 .setPositiveButton("Создать", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
