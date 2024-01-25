@@ -56,7 +56,16 @@ public class MainActivity extends AppCompatActivity {
 
         EditText WidgetText = dialogView.findViewById(R.id.WidgetText);
 
-        builder.setTitle("Добавить")
+        String dialogTitle;
+        if ("PhysActivTab".equals(tabIndex)) {
+            dialogTitle = "Добавить виджет в физ. нагрузки";
+        } else if ("TongTwistTab".equals(tabIndex)) {
+            dialogTitle = "Добавить виджет в скороговорки";
+        } else {
+            dialogTitle = "Добавить виджет";
+        }
+
+        builder.setTitle(dialogTitle)
                 .setPositiveButton("Создать", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
