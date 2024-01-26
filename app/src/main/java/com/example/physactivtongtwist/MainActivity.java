@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         } else if ("TongTwistTab".equals(tabIndex)) {
             dialogTitle = "Добавить виджет в скороговорки";
         } else {
-            dialogTitle = "Добавить виджет";
+            dialogTitle = "Ошибка";
         }
 
         builder.setTitle(dialogTitle)
