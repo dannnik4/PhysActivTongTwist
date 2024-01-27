@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         builder.setTitle(dialogTitle)
-                .setPositiveButton("Создать", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String widgetText = WidgetText.getText().toString();
