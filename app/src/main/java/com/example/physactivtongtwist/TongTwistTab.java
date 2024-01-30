@@ -20,14 +20,18 @@ public class TongTwistTab extends Fragment {
         View view = inflater.inflate(R.layout.tongtwist_layout, container, false);
 
         textView = view.findViewById(R.id.WidgetText);
-        Button createWidgetButton = view.findViewById(R.id.WidgetButton);
 
+        // Загрузить сохраненный текст при создании фрагмента
+        loadWidgetText("TongTwistTab");
+
+        Button createWidgetButton = view.findViewById(R.id.WidgetButton);
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((MainActivity) requireActivity()).showWidgetDialog(new WidgetDialogCallback() {
                     @Override
                     public void onPositiveClick(String widgetText) {
+                        // Передать текст в TextView для отображения на странице
                         textView.setText(widgetText);
                     }
                 }, "TongTwistTab");
@@ -35,5 +39,11 @@ public class TongTwistTab extends Fragment {
         });
 
         return view;
+    }
+
+    private void loadWidgetText(String tabIndex) {
+        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        String savedText = preferences.getString("widgetText_" + tabIndex, "");
+        textView.setText(savedText);
     }
 }
