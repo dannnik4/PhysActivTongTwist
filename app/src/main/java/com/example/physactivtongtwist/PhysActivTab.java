@@ -22,7 +22,6 @@ public class PhysActivTab extends Fragment {
 
         textView = view.findViewById(R.id.WidgetText);
 
-        // Загрузить сохраненный текст при создании фрагмента
         loadWidgetText("PhysActivTab");
 
         Button createWidgetButton = view.findViewById(R.id.WidgetButton);
