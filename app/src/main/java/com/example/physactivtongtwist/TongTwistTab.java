@@ -22,7 +22,6 @@ public class TongTwistTab extends Fragment {
 
         textView = view.findViewById(R.id.WidgetText);
 
-        // Загрузить сохраненный текст при создании фрагмента
         loadWidgetText("TongTwistTab");
 
         Button createWidgetButton = view.findViewById(R.id.WidgetButton);
