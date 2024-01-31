@@ -32,7 +32,6 @@ public class TongTwistTab extends Fragment {
                 ((MainActivity) requireActivity()).showWidgetDialog(new WidgetDialogCallback() {
                     @Override
                     public void onPositiveClick(String widgetText) {
-                        // Передать текст в TextView для отображения на странице
                         textView.setText(widgetText);
                     }
                 }, "TongTwistTab");
