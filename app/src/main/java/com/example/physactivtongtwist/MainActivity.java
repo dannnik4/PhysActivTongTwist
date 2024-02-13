@@ -6,7 +6,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -28,9 +31,11 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.physactivtab:
                         fragment = new PhysActivTab();
+                        setupWidgetViews(fragment, "PhysActivTab");
                         break;
                     case R.id.tongtwisttab:
                         fragment = new TongTwistTab();
+                        setupWidgetViews(fragment, "TongTwistTab");
                         break;
                     default:
                         return false;
@@ -76,6 +81,34 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("Отменить", null)
                 .show();
+    }
+
+    private void setupWidgetViews(Fragment fragment, String tabIndex) {
+        Bundle args = new Bundle();
+        args.putString("tabIndex", tabIndex);
+        fragment.setArguments(args);
+
+        String savedText = loadWidgetText(tabIndex);
+        TextView textView = fragment.requireView().findViewById(R.id.WidgetText);
+        textView.setText(savedText);
+
+        Button createWidgetButton = fragment.requireView().findViewById(R.id.WidgetButton);
+        createWidgetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showWidgetDialog(new WidgetDialogCallback() {
+                    @Override
+                    public void onPositiveClick(String widgetText) {
+                        textView.setText(widgetText);
+                    }
+                }, tabIndex);
+            }
+        });
+    }
+
+    public String loadWidgetText(String tabIndex) {
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        return preferences.getString("widgetText_" + tabIndex, "");
     }
 
     private void saveWidgetText(String text, String tabIndex) {
