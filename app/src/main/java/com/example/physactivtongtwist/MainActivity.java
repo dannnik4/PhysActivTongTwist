@@ -52,6 +52,29 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
     }
 
+    private void setupWidgetViews(Fragment fragment, String tabIndex) {
+        Bundle args = new Bundle();
+        args.putString("tabIndex", tabIndex);
+        fragment.setArguments(args);
+
+        String savedText = loadWidgetText(tabIndex);
+        TextView textView = fragment.requireView().findViewById(R.id.WidgetText);
+        textView.setText(savedText);
+
+        Button createWidgetButton = fragment.requireView().findViewById(R.id.WidgetButton);
+        createWidgetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showWidgetDialog(new WidgetDialogCallback() {
+                    @Override
+                    public void onPositiveClick(String widgetText) {
+                        textView.setText(widgetText);
+                    }
+                }, tabIndex);
+            }
+        });
+    }
+
     public void showWidgetDialog(final WidgetDialogCallback callback, final String tabIndex) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.widget_text, null);
@@ -81,29 +104,6 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("Отменить", null)
                 .show();
-    }
-
-    private void setupWidgetViews(Fragment fragment, String tabIndex) {
-        Bundle args = new Bundle();
-        args.putString("tabIndex", tabIndex);
-        fragment.setArguments(args);
-
-        String savedText = loadWidgetText(tabIndex);
-        TextView textView = fragment.requireView().findViewById(R.id.WidgetText);
-        textView.setText(savedText);
-
-        Button createWidgetButton = fragment.requireView().findViewById(R.id.WidgetButton);
-        createWidgetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showWidgetDialog(new WidgetDialogCallback() {
-                    @Override
-                    public void onPositiveClick(String widgetText) {
-                        textView.setText(widgetText);
-                    }
-                }, tabIndex);
-            }
-        });
     }
 
     public String loadWidgetText(String tabIndex) {
