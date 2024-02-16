@@ -75,36 +75,36 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-//    public void showWidgetDialog(final WidgetDialogCallback callback, final String tabIndex) {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        View dialogView = getLayoutInflater().inflate(R.layout.widget_text, null);
-//        builder.setView(dialogView);
-//
-//        EditText WidgetText = dialogView.findViewById(R.id.WidgetText);
-//
-//        String dialogTitle;
-//        if ("PhysActivTab".equals(tabIndex)) {
-//            dialogTitle = "Добавить виджет в физ. нагрузки";
-//        } else if ("TongTwistTab".equals(tabIndex)) {
-//            dialogTitle = "Добавить виджет в скороговорки";
-//        } else {
-//            dialogTitle = "Ошибка";
-//        }
-//
-//        builder.setTitle(dialogTitle)
-//                .setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        String widgetText = WidgetText.getText().toString();
-//                        saveWidgetText(widgetText, tabIndex);
-//                        if (callback != null) {
-//                            callback.onPositiveClick(widgetText);
-//                        }
-//                    }
-//                })
-//                .setNegativeButton("Отменить", null)
-//                .show();
-//    }
+    public void showWidgetDialog(final WidgetDialogCallback callback, final String tabIndex) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.widget_text, null);
+        builder.setView(dialogView);
+
+        EditText WidgetText = dialogView.findViewById(R.id.WidgetText);
+
+        String dialogTitle;
+        if ("PhysActivTab".equals(tabIndex)) {
+            dialogTitle = "Добавить виджет в физ. нагрузки";
+        } else if ("TongTwistTab".equals(tabIndex)) {
+            dialogTitle = "Добавить виджет в скороговорки";
+        } else {
+            dialogTitle = "Ошибка";
+        }
+
+        builder.setTitle(dialogTitle)
+                .setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String widgetText = WidgetText.getText().toString();
+                        saveWidgetText(widgetText, tabIndex);
+                        if (callback != null) {
+                            callback.onPositiveClick(widgetText);
+                        }
+                    }
+                })
+                .setNegativeButton("Отменить", null)
+                .show();
+    }
 
     public String loadWidgetText(String tabIndex) {
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
