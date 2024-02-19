@@ -80,8 +80,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void saveWidgetText(String text, String tabIndex) {
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        String existingText = preferences.getString("widgetText_" + tabIndex, "");
+        String newText = existingText.isEmpty() ? text : existingText + "|" + text; // Используйте разделитель "|"
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("widgetText_" + tabIndex, text);
+        editor.putString("widgetText_" + tabIndex, newText);
         editor.apply();
     }
 }
