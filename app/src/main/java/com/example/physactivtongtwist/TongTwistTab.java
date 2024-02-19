@@ -39,9 +39,8 @@ public class TongTwistTab extends Fragment {
         return view;
     }
 
-    private void loadWidgetText(String tabIndex) {
+    private String loadWidgetText(String tabIndex) {
         SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        String savedText = preferences.getString("widgetText_" + tabIndex, "");
-        textView.setText(savedText);
+        return preferences.getString("widgetText_" + tabIndex, "");
     }
 }
