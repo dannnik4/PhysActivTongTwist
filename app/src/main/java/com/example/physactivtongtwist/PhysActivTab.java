@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
@@ -42,6 +43,16 @@ public class PhysActivTab extends Fragment {
     private void loadWidgetText(String tabIndex) {
         SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
         String savedText = preferences.getString("widgetText_" + tabIndex, "");
-        textView.setText(savedText);
+
+        String[] blocks = savedText.split("\\|");
+
+        LinearLayout container = requireView().findViewById(R.id.container);
+        container.removeAllViews();
+
+        for (String block : blocks) {
+            TextView textView = new TextView(requireContext());
+            textView.setText(block);
+            container.addView(textView);
+        }
     }
 }
