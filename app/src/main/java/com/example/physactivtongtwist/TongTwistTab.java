@@ -42,19 +42,19 @@ public class TongTwistTab extends Fragment {
         return view;
     }
 
-    private void loadWidgetText(String tabIndex) {
-        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        String savedText = preferences.getString("widgetText_" + tabIndex, "");
-
-        String[] blocks = savedText.split("\\|");
-
-        LinearLayout container = requireView().findViewById(R.id.container);
-        container.removeAllViews();
-
-        for (String block : blocks) {
-            TextView textView = new TextView(requireContext());
-            textView.setText(block);
-            container.addView(textView);
-        }
-    }
+//    private void loadWidgetText(String tabIndex) {
+//        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
+//        String savedText = preferences.getString("widgetText_" + tabIndex, "");
+//
+//        String[] blocks = savedText.split("\\|");
+//
+//        LinearLayout container = requireView().findViewById(R.id.container);
+//        container.removeAllViews();
+//
+//        for (String block : blocks) {
+//            TextView textView = new TextView(requireContext());
+//            textView.setText(block);
+//            container.addView(textView);
+//        }
+//    }
 }
