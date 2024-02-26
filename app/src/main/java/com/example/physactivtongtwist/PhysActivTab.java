@@ -13,15 +13,14 @@ import androidx.fragment.app.Fragment;
 
 public class PhysActivTab extends Fragment {
 
-    private TextView textView;
+    private LinearLayout container;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.physactiv_layout, container, false);
+        View view = inflater.inflate(R.layout.fragment_layout, container, false);
 
-        textView = view.findViewById(R.id.WidgetText);
-
+        this.container = view.findViewById(R.id.container);
         loadWidgetText("PhysActivTab");
 
         Button createWidgetButton = view.findViewById(R.id.WidgetButton);
@@ -31,7 +30,7 @@ public class PhysActivTab extends Fragment {
                 ((MainActivity) requireActivity()).showWidgetDialog(new WidgetDialogCallback() {
                     @Override
                     public void onPositiveClick(String widgetText) {
-                        textView.setText(widgetText);
+                        addWidget(widgetText);
                     }
                 }, "PhysActivTab");
             }
@@ -40,8 +39,19 @@ public class PhysActivTab extends Fragment {
         return view;
     }
 
-    private String loadWidgetText(String tabIndex) {
+    private void loadWidgetText(String tabIndex) {
         SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        return preferences.getString("widgetText_" + tabIndex, "");
+        String savedText = preferences.getString("widgetText_" + tabIndex, "");
+        String[] blocks = savedText.split("\\|");
+
+        for (String block : blocks) {
+            addWidget(block);
+        }
+    }
+
+    private void addWidget(String text) {
+        TextView textView = new TextView(requireContext());
+        textView.setText(text);
+        container.addView(textView);
     }
 }
