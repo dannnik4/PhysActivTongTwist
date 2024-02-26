@@ -15,15 +15,14 @@ import androidx.fragment.app.Fragment;
 
 public class TongTwistTab extends Fragment {
 
-    private TextView textView;
+    private LinearLayout container;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tongtwist_layout, container, false);
+        View view = inflater.inflate(R.layout.fragment_layout, container, false);
 
-        textView = view.findViewById(R.id.WidgetText);
-
+        this.container = view.findViewById(R.id.container);
         loadWidgetText("TongTwistTab");
 
         Button createWidgetButton = view.findViewById(R.id.WidgetButton);
@@ -33,7 +32,7 @@ public class TongTwistTab extends Fragment {
                 ((MainActivity) requireActivity()).showWidgetDialog(new WidgetDialogCallback() {
                     @Override
                     public void onPositiveClick(String widgetText) {
-                        textView.setText(widgetText);
+                        addWidget(widgetText);
                     }
                 }, "TongTwistTab");
             }
@@ -42,8 +41,19 @@ public class TongTwistTab extends Fragment {
         return view;
     }
 
-    private String loadWidgetText(String tabIndex) {
+    private void loadWidgetText(String tabIndex) {
         SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        return preferences.getString("widgetText_" + tabIndex, "");
+        String savedText = preferences.getString("widgetText_" + tabIndex, "");
+        String[] blocks = savedText.split("\\|");
+
+        for (String block : blocks) {
+            addWidget(block);
+        }
+    }
+
+    private void addWidget(String text) {
+        TextView textView = new TextView(requireContext());
+        textView.setText(text);
+        container.addView(textView);
     }
 }
