@@ -49,9 +49,9 @@ public class PhysActivTab extends Fragment {
         }
     }
 
-//    private void addWidget(String text) {
-//        TextView textView = new TextView(requireContext());
-//        textView.setText(text);
-//        container.addView(textView);
-//    }
+    private void addWidget(String text) {
+        TextView textView = new TextView(requireContext());
+        textView.setText(text);
+        container.addView(textView);
+    }
 }
