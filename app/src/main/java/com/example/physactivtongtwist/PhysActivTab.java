@@ -44,13 +44,25 @@ public class PhysActivTab extends Fragment {
         String savedText = preferences.getString("widgetText_" + tabIndex, "");
         String[] blocks = savedText.split("\\|");
 
+        LayoutInflater inflater = LayoutInflater.from(requireContext());
+
         for (String block : blocks) {
-            addWidget(block);
+            View blockView = inflater.inflate(R.layout.widget_block, container, false);
+            TextView textView = blockView.findViewById(R.id.text_view_block);
+            Button editButton = blockView.findViewById(R.id.edit_button);
+            Button deleteButton = blockView.findViewById(R.id.delete_button);
+
+            textView.setText(block);
+
+            container.addView(blockView);
         }
     }
 
     private void addWidget(String text) {
-        TextView textView = new TextView(requireContext());
+        View blockView = LayoutInflater.from(requireContext()).inflate(R.layout.widget_block, container, false);
+        TextView textView = blockView.findViewById(R.id.text_view_block);
+        Button editButton = blockView.findViewById(R.id.edit_button);
+        Button deleteButton = blockView.findViewById(R.id.delete_button);
         textView.setText(text);
         container.addView(textView);
     }
