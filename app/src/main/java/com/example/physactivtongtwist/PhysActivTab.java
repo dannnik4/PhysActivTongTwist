@@ -1,12 +1,16 @@
 package com.example.physactivtongtwist;
 
 import static android.content.Context.MODE_PRIVATE;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
@@ -54,8 +58,25 @@ public class PhysActivTab extends Fragment {
 
             textView.setText(block);
 
+            deleteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    container.removeView(blockView);
+                    DeleteWidget(tabIndex, block);
+                }
+            });
+
             container.addView(blockView);
         }
+    }
+
+    private void DeleteWidget(String tabIndex, String widgetText) {
+        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        String savedText = preferences.getString("widgetText_" + tabIndex, "");
+        String newText = savedText.replace(widgetText + "|", "");
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("widgetText_" + tabIndex, newText);
+        editor.apply();
     }
 
     private void addWidget(String text) {
