@@ -54,8 +54,25 @@ public class TongTwistTab extends Fragment {
 
             textView.setText(block);
 
+            deleteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    container.removeView(blockView);
+                    DeleteWidget(tabIndex, block);
+                }
+            });
+
             container.addView(blockView);
         }
+    }
+
+    private void DeleteWidget(String tabIndex, String widgetText) {
+        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        String savedText = preferences.getString("widgetText_" + tabIndex, "");
+        String newText = savedText.replace(widgetText + "|", "");
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("widgetText_" + tabIndex, newText);
+        editor.apply();
     }
 
     private void addWidget(String text) {
