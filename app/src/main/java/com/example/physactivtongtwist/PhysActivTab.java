@@ -77,6 +77,7 @@ public class PhysActivTab extends Fragment {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("widgetText_" + tabIndex, newText);
         editor.apply();
+        loadWidgetText(tabIndex);
     }
 
     private void addWidget(String text) {
