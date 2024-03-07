@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
 
 public class TongTwistTab extends Fragment {
@@ -74,6 +76,7 @@ public class TongTwistTab extends Fragment {
         editor.putString("widgetText_" + tabIndex, newText);
         editor.apply();
         loadWidgetText(tabIndex);
+        Toast.makeText(requireContext(), "Виджет удален", Toast.LENGTH_SHORT).show();
     }
 
     private void addWidget(String text) {
