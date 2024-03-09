@@ -75,7 +75,6 @@ public class TongTwistTab extends Fragment {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("widgetText_" + tabIndex, newText);
         editor.apply();
-        loadWidgetText(tabIndex);
         Toast.makeText(requireContext(), "Виджет удален", Toast.LENGTH_SHORT).show();
     }
 
