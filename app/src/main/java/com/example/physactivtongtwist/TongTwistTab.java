@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.regex.Pattern;
+
 public class TongTwistTab extends Fragment {
 
     private LinearLayout container;
@@ -71,7 +73,7 @@ public class TongTwistTab extends Fragment {
     private void DeleteWidget(String tabIndex, String widgetText) {
         SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
         String savedText = preferences.getString("widgetText_" + tabIndex, "");
-        String newText = savedText.replace(widgetText + "|", "");
+        String newText = savedText.replaceAll(Pattern.quote(widgetText + "\\|"), "");
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("widgetText_" + tabIndex, newText);
         editor.apply();
