@@ -77,7 +77,7 @@ public class PhysActivTab extends Fragment {
     private void DeleteWidget(String tabIndex, String widgetText) {
         SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
         String savedText = preferences.getString("widgetText_" + tabIndex, "");
-        String newText = savedText.replaceAll(Pattern.quote(widgetText + "|"), "");
+        String newText = savedText.replaceAll("(?m)^" + Pattern.quote(widgetText + "\\|") + "$", "");
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("widgetText_" + tabIndex, newText);
         editor.apply();
