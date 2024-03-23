@@ -81,12 +81,12 @@ public class TongTwistTab extends Fragment {
         Toast.makeText(requireContext(), "Виджет удален", Toast.LENGTH_SHORT).show();
     }
 
-    private void addWidget(String text) {
-        View blockView = LayoutInflater.from(requireContext()).inflate(R.layout.widget_block, container, false);
-        TextView textView = blockView.findViewById(R.id.text_view_block);
-        Button editButton = blockView.findViewById(R.id.edit_button);
-        Button deleteButton = blockView.findViewById(R.id.delete_button);
-        textView.setText(text);
-        container.addView(textView);
-    }
+//    private void addWidget(String text) {
+//        View blockView = LayoutInflater.from(requireContext()).inflate(R.layout.widget_block, container, false);
+//        TextView textView = blockView.findViewById(R.id.text_view_block);
+//        Button editButton = blockView.findViewById(R.id.edit_button);
+//        Button deleteButton = blockView.findViewById(R.id.delete_button);
+//        textView.setText(text);
+//        container.addView(textView);
+//    }
 }
