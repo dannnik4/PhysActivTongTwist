@@ -3,6 +3,7 @@ package com.example.physactivtongtwist;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.regex.Pattern;
 
 public class PhysActivTab extends Fragment {
@@ -95,5 +98,27 @@ public class PhysActivTab extends Fragment {
 
         // Сохраняем текст в файл
         saveToFile(text);
+    }
+
+    private void saveToFile(String text) {
+        FileOutputStream fos = null;
+        try {
+            // Открываем файл для записи
+            fos = requireContext().openFileOutput("blocks.txt", Context.MODE_APPEND);
+            // Записываем текст в файл
+            fos.write(text.getBytes());
+            // Добавляем символ новой строки для разделения блоков текста
+            fos.write(System.getProperty("line.separator").getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
