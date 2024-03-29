@@ -100,11 +100,8 @@ public class TongTwistTab extends Fragment {
     private void saveToFile(String text) {
         FileOutputStream fos = null;
         try {
-            // Открываем файл для записи
             fos = requireContext().openFileOutput("blocks.txt", Context.MODE_APPEND);
-            // Записываем текст в файл
             fos.write(text.getBytes());
-            // Добавляем символ новой строки для разделения блоков текста
             fos.write(System.getProperty("line.separator").getBytes());
         } catch (IOException e) {
             e.printStackTrace();
