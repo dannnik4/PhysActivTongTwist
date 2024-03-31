@@ -91,10 +91,8 @@ public class TongTwistTab extends Fragment {
         Button editButton = blockView.findViewById(R.id.edit_button);
         Button deleteButton = blockView.findViewById(R.id.delete_button);
         textView.setText(text);
-        container.addView(textView);
-
-        // Сохраняем текст в файл
         saveToFile(text);
+        container.addView(blockView);
     }
 
     private void saveToFile(String text) {
