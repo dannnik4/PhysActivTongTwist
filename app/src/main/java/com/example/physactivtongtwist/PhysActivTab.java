@@ -91,26 +91,6 @@ public class PhysActivTab extends Fragment {
         Button editButton = blockView.findViewById(R.id.edit_button);
         Button deleteButton = blockView.findViewById(R.id.delete_button);
         textView.setText(text);
-        saveToFile(text);
-        container.addView(blockView);
-    }
-
-    private void saveToFile(String text) {
-        FileOutputStream fos = null;
-        try {
-            fos = requireContext().openFileOutput("blocks.txt", Context.MODE_APPEND);
-            fos.write(text.getBytes());
-            fos.write(System.getProperty("line.separator").getBytes());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (fos != null) {
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        container.addView(textView);
     }
 }
