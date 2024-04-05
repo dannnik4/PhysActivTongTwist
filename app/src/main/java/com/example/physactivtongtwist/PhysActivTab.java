@@ -59,10 +59,12 @@ public class PhysActivTab extends Fragment {
 
             textView.setText(block);
 
+            final View finalBlockView = blockView;
+
             deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    container.removeView(blockView);
+                    container.removeView(finalBlockView);
                     DeleteWidget(tabIndex, block);
                 }
             });
@@ -78,7 +80,6 @@ public class PhysActivTab extends Fragment {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("widgetText_" + tabIndex, newText);
         editor.apply();
-        loadWidgetText(tabIndex);
         Toast.makeText(requireContext(), "Виджет удален", Toast.LENGTH_SHORT).show();
     }
 
@@ -88,6 +89,7 @@ public class PhysActivTab extends Fragment {
         Button editButton = blockView.findViewById(R.id.edit_button);
         Button deleteButton = blockView.findViewById(R.id.delete_button);
         textView.setText(text);
-        container.addView(textView);
+
+        container.addView(blockView);
     }
 }
