@@ -59,13 +59,11 @@ public class PhysActivTab extends Fragment {
 
             textView.setText(block);
 
-            final View finalBlockView = blockView; // Создаем финальную переменную для использования в обработчике событий
+            final View finalBlockView = blockView;
 
-            // Обработчик нажатия на кнопку редактирования
             editButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Открываем диалог для редактирования текста
                     showEditDialog(new EditDialogCallback() {
                         @Override
                         public void onPositiveClick(String newText) {
