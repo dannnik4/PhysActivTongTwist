@@ -64,7 +64,7 @@ public class PhysActivTab extends Fragment {
             editButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    showEditDialog(new EditDialogCallback() {
+                    showEditDialog(new WidgetDialogCallback() {
                         @Override
                         public void onPositiveClick(String newText) {
                             textView.setText(newText);
@@ -109,6 +109,9 @@ public class PhysActivTab extends Fragment {
         }
         editor.putString("widgetText_" + tabIndex, newText.toString());
         editor.apply();
+    }
+
+    private void showEditDialog(WidgetDialogCallback callback, String currentText) {
     }
 
     private void DeleteWidget(String tabIndex, String widgetText) {
