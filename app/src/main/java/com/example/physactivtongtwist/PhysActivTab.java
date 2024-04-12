@@ -121,6 +121,8 @@ public class PhysActivTab extends Fragment {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("widgetText_" + tabIndex, newText);
         editor.apply();
+        requireActivity().recreate();
         Toast.makeText(requireContext(), "Виджет удален", Toast.LENGTH_SHORT).show();
     }
+
 }
