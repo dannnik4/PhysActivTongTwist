@@ -35,7 +35,7 @@ public class TongTwistTab extends Fragment {
                 ((MainActivity) requireActivity()).showWidgetDialog(new WidgetDialogCallback() {
                     @Override
                     public void onPositiveClick(String widgetText) {
-                        addWidget(widgetText);
+                        showWidget(widgetText);
                     }
                 }, "TongTwistTab");
             }
@@ -86,7 +86,7 @@ public class TongTwistTab extends Fragment {
         }
     }
 
-    private void addWidget(String text) {
+    private void showWidget(String text) {
         View blockView = LayoutInflater.from(requireContext()).inflate(R.layout.widget_block, container, false);
         TextView textView = blockView.findViewById(R.id.text_view_block);
         Button editButton = blockView.findViewById(R.id.edit_button);
