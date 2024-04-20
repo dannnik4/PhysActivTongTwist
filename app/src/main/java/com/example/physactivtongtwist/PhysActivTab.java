@@ -111,8 +111,8 @@ public class PhysActivTab extends Fragment {
         editor.apply();
     }
 
-    private void showEditDialog(WidgetDialogCallback callback, String currentText) {
-    }
+//    private void showEditDialog(WidgetDialogCallback callback, String currentText) {
+//    }
 
     private void DeleteWidget(String tabIndex, String widgetText) {
         SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", MODE_PRIVATE);
