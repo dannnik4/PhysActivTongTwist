@@ -2,12 +2,15 @@ package com.example.physactivtongtwist;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -111,7 +114,30 @@ public class TongTwistTab extends Fragment {
         editor.apply();
     }
 
-    private void showEditDialog(WidgetDialogCallback callback, String currentText) {
+    private void showEditDialog(final WidgetDialogCallback callback, final String currentText) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle("Редактировать текст");
+
+        final EditText editText = new EditText(requireContext());
+        editText.setText(currentText);
+        builder.setView(editText);
+
+        builder.setPositiveButton("Сохранить", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newText = editText.getText().toString();
+                callback.onPositiveClick(newText);
+            }
+        });
+
+        builder.setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        builder.create().show();
     }
 
     private void DeleteWidget(String tabIndex, String widgetText) {
