@@ -4,7 +4,7 @@
     android:orientation="horizontal"
     android:layout_margin="5dp"
     android:padding="2dp"
-    android:background="#E0E0E0">
+    android:background="#F5F5F5">
 
     <TextView
         android:id="@+id/text_view_block"
@@ -21,13 +21,15 @@
             android:id="@+id/edit_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Редактировать" />
+            android:text="Редактировать"
+            android:textSize="11sp" />
 
         <Button
             android:id="@+id/delete_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Удалить" />
+            android:text="Удалить"
+            android:textSize="11sp" />
 
     </LinearLayout>
 
