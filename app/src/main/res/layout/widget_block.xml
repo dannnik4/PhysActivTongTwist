@@ -6,39 +6,42 @@
     android:padding="2dp"
     android:background="#F5F5F5">
 
-    <TextView
-        android:id="@+id/text_view_block"
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/counter"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"/>
-
-        <Button
-            android:id="@+id/plus_buttion"
-            android:layout_height="match_parent"
+            android:id="@+id/text_view_block"
             android:layout_width="wrap_content"
-            android:text="+" />
+            android:layout_height="wrap_content"
+            android:text="Текст" />
 
-        <Button
-            android:id="@+id/minus_button"
-            android:layout_height="match_parent"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:text="-" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/reset_button"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
-            android:text="Обнулить" />
+            <Button
+                android:id="@+id/button_plus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+" />
+
+            <Button
+                android:id="@+id/button_minus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-" />
+
+            <Button
+                android:id="@+id/button_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Обнулить" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -49,17 +52,15 @@
 
         <Button
             android:id="@+id/edit_button"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Редактировать"
-            android:textSize="11sp" />
+            android:text="Редактировать" />
 
         <Button
             android:id="@+id/delete_button"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Удалить"
-            android:textSize="11sp" />
+            android:text="Удалить" />
 
     </LinearLayout>
 
