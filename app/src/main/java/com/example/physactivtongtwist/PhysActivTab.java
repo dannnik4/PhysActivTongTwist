@@ -27,11 +27,11 @@ public class PhysActivTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_layout, container, false);
-
         this.container = view.findViewById(R.id.container);
         loadWidgetText("PhysActivTab");
 
-        Button createWidgetButton = view.findViewById(R.id.WidgetButton);
+        Button createWidgetButton = getActivity().findViewById(R.id.WidgetButton);
+
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
