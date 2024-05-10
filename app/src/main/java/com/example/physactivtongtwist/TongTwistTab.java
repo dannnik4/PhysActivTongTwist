@@ -24,8 +24,7 @@ public class TongTwistTab extends Fragment {
     private LinearLayout container;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_layout, container, false);
 
         this.container = view.findViewById(R.id.container);
