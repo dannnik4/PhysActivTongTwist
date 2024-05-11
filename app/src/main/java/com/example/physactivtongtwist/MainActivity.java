@@ -65,19 +65,16 @@ public class MainActivity extends AppCompatActivity {
             dialogTitle = "Ошибка";
         }
 
-        builder.setTitle(dialogTitle)
-                .setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String widgetText = WidgetText.getText().toString();
-                        saveWidgetText(widgetText, tabIndex);
-                        if (callback != null) {
-                            callback.onPositiveClick(widgetText);
-                        }
-                    }
-                })
-                .setNegativeButton("Отменить", null)
-                .show();
+        builder.setTitle(dialogTitle).setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String widgetText = WidgetText.getText().toString();
+                saveWidgetText(widgetText, tabIndex);
+                if (callback != null) {
+                    callback.onPositiveClick(widgetText);
+                }
+            }
+        }).setNegativeButton("Отменить", null).show();
     }
 
     private void saveWidgetText(String text, String tabIndex) {
