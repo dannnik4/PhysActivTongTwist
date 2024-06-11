@@ -147,6 +147,6 @@ public class PhysActivTab extends Fragment {
         editor.putString("widgetText_" + tabIndex, newText);
         editor.apply();
         requireActivity().recreate();
-        Toast.makeText(requireContext(), "Виджет удален", Toast.LENGTH_SHORT).show();
+        Toast.makeText(requireContext(), "Виджет удалён", Toast.LENGTH_SHORT).show();
     }
 }
