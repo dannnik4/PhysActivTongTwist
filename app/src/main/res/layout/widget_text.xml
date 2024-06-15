@@ -11,6 +11,6 @@
         android:layout_height="wrap_content"
         android:hint="Введите текст"
         android:inputType="textMultiLine"
-        android:minLines="3"
+        android:minLines="4"
         android:gravity="top"/>
 </LinearLayout>
