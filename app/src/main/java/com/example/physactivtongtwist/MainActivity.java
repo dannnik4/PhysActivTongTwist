@@ -78,11 +78,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void saveWidgetText(String text, String tabIndex) {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        String existingText = preferences.getString("widgetText_" + tabIndex, "");
-        String newText = existingText.isEmpty() ? text : existingText + "|" + text;
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("widgetText_" + tabIndex, newText);
-        editor.apply();
+        try {
+            if (tabIndex == null || (!tabIndex.equals("PhysActivTab") && !tabIndex.equals("TongTwistTab"))) {
+                throw new IllegalArgumentException("Invalid tabIndex: " + tabIndex);
+            }
+
+            SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+            String existingText = preferences.getString("widgetText_" + tabIndex, "");
+            if (existingText == null) {
+                existingText = "";
+            }
+            String newText = existingText.isEmpty() ? text : existingText + "|" + text;
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("widgetText_" + tabIndex, newText);
+            editor.apply();
+
+            Log.d("WidgetSave", "Widget saved successfully: " + newText);
+        } catch (Exception e) {
+            Log.e("WidgetSaveError", "Error saving widget text", e);
+        }
     }
+
 }
