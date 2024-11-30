@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.media3.common.util.Log;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.commons.logging.Log;
 
 public class MainActivity extends AppCompatActivity {
 
