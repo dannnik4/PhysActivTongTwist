@@ -17,6 +17,8 @@ import androidx.media3.common.util.Log;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.crashlytics.buildtools.reloc.org.apache.commons.logging.Log;
 
+import org.chromium.base.Log;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
