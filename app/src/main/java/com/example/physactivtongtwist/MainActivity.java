@@ -92,5 +92,4 @@ public class MainActivity extends AppCompatActivity {
             editor.putString("widgetText_" + tabIndex, newText);
             editor.apply();
     }
-
 }
