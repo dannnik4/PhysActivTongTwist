@@ -84,9 +84,6 @@ public class MainActivity extends AppCompatActivity {
 
             SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
             String existingText = preferences.getString("widgetText_" + tabIndex, "");
-            if (existingText == null) {
-                existingText = "";
-            }
             String newText = existingText.isEmpty() ? text : existingText + "|" + text;
             SharedPreferences.Editor editor = preferences.edit();
             editor.putString("widgetText_" + tabIndex, newText);
