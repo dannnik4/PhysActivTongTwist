@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showWidgetDialog(final WidgetDialogCallback callback, final String tabIndex) {
+        System.out.println("Dialog is being shown for tab: " + tabIndex); // Отладочный вывод
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.widget_text, null);
         builder.setView(dialogView);
@@ -65,16 +66,19 @@ public class MainActivity extends AppCompatActivity {
             dialogTitle = "Ошибка";
         }
 
-        builder.setTitle(dialogTitle).setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String widgetText = WidgetText.getText().toString();
-                saveWidgetText(widgetText, tabIndex);
-                if (callback != null) {
-                    callback.onPositiveClick(widgetText);
-                }
-            }
-        }).setNegativeButton("Отменить", null).show();
+        builder.setTitle(dialogTitle)
+                .setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String widgetText = WidgetText.getText().toString();
+                        saveWidgetText(widgetText, tabIndex);
+                        if (callback != null) {
+                            callback.onPositiveClick(widgetText);
+                        }
+                    }
+                })
+                .setNegativeButton("Отменить", null)
+                .show();
     }
 
     private void saveWidgetText(String text, String tabIndex) {
