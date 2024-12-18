@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showWidgetDialog(final WidgetDialogCallback callback, final String tabIndex) {
-        System.out.println("Dialog is being shown for tab: " + tabIndex); // Отладочный вывод
+        System.out.println("Dialog is being shown for tab: " + tabIndex);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.widget_text, null);
         builder.setView(dialogView);
