@@ -25,25 +25,26 @@ public class PhysActivTab extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_layout, container, false);
-        this.container = view.findViewById(R.id.container);
-        loadWidgetText("PhysActivTab");
+        View view = inflater.inflate(R.layout.fragment_layout, container, false); // Убедитесь, что layout совпадает
+        this.container = view.findViewById(R.id.container); // Контейнер виджетов
+        loadWidgetText("PhysActivTab"); // Загрузка виджетов
 
         Button createWidgetButton = view.findViewById(R.id.WidgetButton);
-
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Вызываем диалог через MainActivity
                 ((MainActivity) requireActivity()).showWidgetDialog(new WidgetDialogCallback() {
                     @Override
                     public void onPositiveClick(String widgetText) {
+                        // Добавляем виджет
                         showWidget(widgetText);
                     }
                 }, "PhysActivTab");
             }
         });
 
-        return view;
+        return view; // Возвращаем view
     }
 
     private void loadWidgetText(String tabIndex) {
