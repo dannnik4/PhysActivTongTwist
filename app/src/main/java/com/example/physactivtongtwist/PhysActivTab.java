@@ -37,7 +37,6 @@ public class PhysActivTab extends Fragment {
                 ((MainActivity) requireActivity()).showWidgetDialog(new WidgetDialogCallback() {
                     @Override
                     public void onPositiveClick(String widgetText) {
-                        // Добавляем виджет
                         showWidget(widgetText);
                     }
                 }, "PhysActivTab");
