@@ -33,7 +33,6 @@ public class PhysActivTab extends Fragment {
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Вызываем диалог через MainActivity
                 ((MainActivity) requireActivity()).showWidgetDialog(new WidgetDialogCallback() {
                     @Override
                     public void onPositiveClick(String widgetText) {
