@@ -26,8 +26,8 @@ public class PhysActivTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_layout, container, false); // Убедитесь, что layout совпадает
-        this.container = view.findViewById(R.id.container); // Контейнер виджетов
-        loadWidgetText("PhysActivTab"); // Загрузка виджетов
+        this.container = view.findViewById(R.id.container);
+        loadWidgetText("PhysActivTab");
 
         Button createWidgetButton = view.findViewById(R.id.WidgetButton);
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
