@@ -42,7 +42,7 @@ public class PhysActivTab extends Fragment {
             }
         });
 
-        return view; // Возвращаем view
+        return view;
     }
 
     private void loadWidgetText(String tabIndex) {
