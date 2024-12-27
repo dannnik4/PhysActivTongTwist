@@ -30,7 +30,6 @@ public class TongTwistTab extends Fragment {
         loadWidgetText("TongTwistTab");
 
         Button createWidgetButton = view.findViewById(R.id.WidgetButton);
-
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
