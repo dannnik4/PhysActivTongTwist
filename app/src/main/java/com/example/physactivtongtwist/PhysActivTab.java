@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.fragment.app.Fragment;
 
 import java.util.regex.Pattern;
