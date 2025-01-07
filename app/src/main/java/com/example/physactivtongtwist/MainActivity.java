@@ -65,8 +65,6 @@ public class MainActivity extends AppCompatActivity {
             dialogTitle = "Ошибка";
         }
 
-        System.out.println("Открывается диалог для вкладки: " + tabIndex);
-
         builder.setTitle(dialogTitle).setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
