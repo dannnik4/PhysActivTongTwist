@@ -33,11 +33,9 @@ public class PhysActivTab extends Fragment {
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Кнопка нажата!");
                 ((MainActivity) requireActivity()).showWidgetDialog(new WidgetDialogCallback() {
                     @Override
                     public void onPositiveClick(String widgetText) {
-                        System.out.println("Виджет должен добавиться: " + widgetText);
                         showWidget(widgetText);
                     }
                 }, "PhysActivTab");
