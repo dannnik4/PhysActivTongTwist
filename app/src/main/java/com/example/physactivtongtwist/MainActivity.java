@@ -44,9 +44,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, new PhysActivTab());
-        transaction.commit();
+        // Открываем вкладку "Физическая активность" по умолчанию
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new PhysActivTab())
+                .commit();
     }
 
     public void showWidgetDialog(final WidgetDialogCallback callback, final String tabIndex) {
@@ -54,37 +55,33 @@ public class MainActivity extends AppCompatActivity {
         View dialogView = getLayoutInflater().inflate(R.layout.widget_text, null);
         builder.setView(dialogView);
 
-        EditText WidgetText = dialogView.findViewById(R.id.WidgetText);
+        EditText widgetTextInput = dialogView.findViewById(R.id.WidgetText);
 
-        String dialogTitle;
-        if ("PhysActivTab".equals(tabIndex)) {
-            dialogTitle = "Добавить виджет в физ. нагрузки";
-        } else if ("TongTwistTab".equals(tabIndex)) {
-            dialogTitle = "Добавить виджет в скороговорки";
-        } else {
-            dialogTitle = "Ошибка";
-        }
+        String dialogTitle = tabIndex.equals("PhysActivTab") ?
+                "Добавить виджет в физ. нагрузки" : "Добавить виджет в скороговорки";
 
-        builder.setTitle(dialogTitle).setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String widgetText = WidgetText.getText().toString();
-                saveWidgetText(widgetText, tabIndex);
-                if (callback != null) {
-                    callback.onPositiveClick(widgetText);
-                }
-            }
-        }).setNegativeButton("Отменить", null).show();
+        builder.setTitle(dialogTitle)
+                .setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String widgetText = widgetTextInput.getText().toString().trim();
+                        if (!widgetText.isEmpty()) {
+                            saveWidgetText(widgetText, tabIndex);
+                            if (callback != null) {
+                                callback.onPositiveClick(widgetText);
+                            }
+                        }
+                    }
+                })
+                .setNegativeButton("Отменить", null)
+                .show();
     }
 
     private void saveWidgetText(String text, String tabIndex) {
-        if (tabIndex == null || (!tabIndex.equals("PhysActivTab") && !tabIndex.equals("TongTwistTab"))) {
-            throw new IllegalArgumentException("Invalid tabIndex: " + tabIndex);
-        }
-
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         String existingText = preferences.getString("widgetText_" + tabIndex, "");
         String newText = existingText.isEmpty() ? text : existingText + "|" + text;
+
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("widgetText_" + tabIndex, newText);
         editor.apply();
