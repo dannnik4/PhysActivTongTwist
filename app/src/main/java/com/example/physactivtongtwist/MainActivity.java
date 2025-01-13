@@ -45,9 +45,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Открываем вкладку "Физическая активность" по умолчанию
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new PhysActivTab())
-                .commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PhysActivTab()).commit();
     }
 
     public void showWidgetDialog(final WidgetDialogCallback callback, final String tabIndex) {
@@ -57,24 +55,20 @@ public class MainActivity extends AppCompatActivity {
 
         EditText widgetTextInput = dialogView.findViewById(R.id.WidgetText);
 
-        String dialogTitle = tabIndex.equals("PhysActivTab") ?
-                "Добавить виджет в физ. нагрузки" : "Добавить виджет в скороговорки";
+        String dialogTitle = tabIndex.equals("PhysActivTab") ? "Добавить виджет в физ. нагрузки" : "Добавить виджет в скороговорки";
 
-        builder.setTitle(dialogTitle)
-                .setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String widgetText = widgetTextInput.getText().toString().trim();
-                        if (!widgetText.isEmpty()) {
-                            saveWidgetText(widgetText, tabIndex);
-                            if (callback != null) {
-                                callback.onPositiveClick(widgetText);
-                            }
-                        }
+        builder.setTitle(dialogTitle).setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String widgetText = widgetTextInput.getText().toString().trim();
+                if (!widgetText.isEmpty()) {
+                    saveWidgetText(widgetText, tabIndex);
+                    if (callback != null) {
+                        callback.onPositiveClick(widgetText);
                     }
-                })
-                .setNegativeButton("Отменить", null)
-                .show();
+                }
+            }
+        }).setNegativeButton("Отменить", null).show();
     }
 
     private void saveWidgetText(String text, String tabIndex) {
