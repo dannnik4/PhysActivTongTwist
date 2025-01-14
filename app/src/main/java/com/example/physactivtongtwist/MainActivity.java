@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Открываем вкладку "Физическая активность" по умолчанию
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PhysActivTab()).commit();
     }
 
