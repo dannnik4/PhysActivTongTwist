@@ -28,7 +28,6 @@ public class PhysActivTab extends Fragment {
         View view = inflater.inflate(R.layout.fragment_layout, container, false);
         this.container = view.findViewById(R.id.container);
 
-        // Загружаем сохраненные виджеты
         loadWidgetText();
 
         Button createWidgetButton = view.findViewById(R.id.WidgetButton);
