@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showWidgetDialog(final WidgetDialogCallback callback, final String tabIndex) {
+        Log.d("MainActivity", "Открываем диалог создания виджета");
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.widget_text, null);
         builder.setView(dialogView);
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String widgetText = widgetTextInput.getText().toString().trim();
+                Log.d("MainActivity", "Введённый текст: " + widgetText);
                 if (!widgetText.isEmpty()) {
                     saveWidgetText(widgetText, tabIndex);
                     if (callback != null) {
