@@ -3,6 +3,7 @@ package com.example.physactivtongtwist;
 import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,11 +35,14 @@ public class PhysActivTab extends Fragment {
         createWidgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("PhysActivTab", "Нажата кнопка создания виджета");
                 ((MainActivity) requireActivity()).showWidgetDialog(new WidgetDialogCallback() {
                     @Override
                     public void onPositiveClick(String widgetText) {
+                        Log.d("PhysActivTab", "Создаётся новый виджет: " + widgetText);
                         addWidget(widgetText);
                         saveWidgetText();
+                        loadWidgetText();
                     }
                 }, tabIndex);
             }
@@ -61,6 +65,7 @@ public class PhysActivTab extends Fragment {
     }
 
     private void addWidget(String text) {
+        Log.d("PhysActivTab", "Добавляем виджет с текстом: " + text);
         View blockView = LayoutInflater.from(requireContext()).inflate(R.layout.widget_block, container, false);
         TextView textView = blockView.findViewById(R.id.text_view_block);
         Button editButton = blockView.findViewById(R.id.edit_button);
@@ -105,6 +110,10 @@ public class PhysActivTab extends Fragment {
             View childView = container.getChildAt(i);
             TextView textView = childView.findViewById(R.id.text_view_block);
             newText.append(textView.getText().toString()).append("|");
+        }
+
+        if (newText.length() > 0) {
+            newText.setLength(newText.length() - 1);
         }
 
         editor.putString("widgetText_" + tabIndex, newText.toString());
