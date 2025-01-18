@@ -3,21 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Контейнер для виджетов -->
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="100dp"
+        android:layout_above="@id/WidgetButton" />
 
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/WidgetText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp" />
-
+    <!-- Кнопка добавления виджета -->
     <Button
         android:id="@+id/WidgetButton"
         android:layout_width="60dp"
