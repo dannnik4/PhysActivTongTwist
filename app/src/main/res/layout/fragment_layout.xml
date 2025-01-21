@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Контейнер для виджетов -->
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -11,6 +12,7 @@
         android:paddingBottom="100dp"
         android:layout_above="@id/WidgetButton" />
 
+    <!-- Кнопка добавления виджета -->
     <Button
         android:id="@+id/WidgetButton"
         android:layout_width="60dp"
