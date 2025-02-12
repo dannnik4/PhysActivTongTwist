@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'com.example.physactivtongtwist'
-    compileSdk 34 // Оновлено до останньої версії
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.physactivtongtwist"
