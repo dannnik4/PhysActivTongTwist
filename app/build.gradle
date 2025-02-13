@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "com.example.physactivtongtwist"
         minSdk 26
-        targetSdk 34 // Оновлено до останньої версії
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
