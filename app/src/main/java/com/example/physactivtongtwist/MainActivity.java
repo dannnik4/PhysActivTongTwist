@@ -24,28 +24,40 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
-        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment fragment;
-                switch (item.getItemId()) {
-                    case R.id.physactivtab:
-                        fragment = new PhysActivTab();
-                        break;
-                    case R.id.tongtwisttab:
-                        fragment = new TongTwistTab();
-                        break;
-                    default:
-                        return false;
-                }
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, fragment);
-                transaction.commit();
-                return true;
+        Button widgetButton = findViewById(R.id.WidgetButton);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            Fragment fragment;
+            switch (item.getItemId()) {
+                case R.id.physactivtab:
+                    fragment = new PhysActivTab();
+                    break;
+                case R.id.tongtwisttab:
+                    fragment = new TongTwistTab();
+                    break;
+                default:
+                    return false;
+            }
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+            return true;
+        });
+
+        // Кнопка +
+        widgetButton.setOnClickListener(v -> {
+            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+            if (currentFragment instanceof PhysActivTab) {
+                showWidgetDialog(((PhysActivTab) currentFragment)::onWidgetAdded, "PhysActivTab");
+            } else if (currentFragment instanceof TongTwistTab) {
+                showWidgetDialog(((TongTwistTab) currentFragment)::onWidgetAdded, "TongTwistTab");
             }
         });
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PhysActivTab()).commit();
+        // стартовый фрагмент
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new PhysActivTab())
+                .commit();
     }
 
     public void showWidgetDialog(final WidgetDialogCallback callback, final String tabIndex) {
