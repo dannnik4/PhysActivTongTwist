@@ -29,28 +29,23 @@ public class PhysActivTab extends Fragment {
         View view = inflater.inflate(R.layout.fragment_layout, container, false);
         this.container = view.findViewById(R.id.container);
 
-        loadWidgetText();
-
-        Button createWidgetButton = view.findViewById(R.id.WidgetButton);
-        createWidgetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("PhysActivTab", "Нажата кнопка создания виджета");
-                ((MainActivity) requireActivity()).showWidgetDialog(new WidgetDialogCallback() {
-                    @Override
-                    public void onPositiveClick(String widgetText) {
-                        Log.d("PhysActivTab", "Создаётся новый виджет: " + widgetText);
-                        addWidget(widgetText);
-                        saveWidgetText();
-                        loadWidgetText();
-                    }
-                }, tabIndex);
-            }
-        });
+        loadWidgetText(); // Загружаем сохранённые виджеты при открытии фрагмента
 
         return view;
     }
 
+    /**
+     * Этот метод вызывается из MainActivity при добавлении нового виджета
+     */
+    public void onWidgetAdded(String widgetText) {
+        Log.d("PhysActivTab", "Добавляем виджет через MainActivity: " + widgetText);
+        addWidget(widgetText);
+        saveWidgetText();
+    }
+
+    /**
+     * Загружает сохранённые виджеты из SharedPreferences
+     */
     private void loadWidgetText() {
         SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", requireContext().MODE_PRIVATE);
         String savedText = preferences.getString("widgetText_" + tabIndex, "");
@@ -64,9 +59,13 @@ public class PhysActivTab extends Fragment {
         }
     }
 
+    /**
+     * Добавляет новый виджет в интерфейс
+     */
     private void addWidget(String text) {
         Log.d("PhysActivTab", "Добавляем виджет с текстом: " + text);
         View blockView = LayoutInflater.from(requireContext()).inflate(R.layout.widget_block, container, false);
+
         TextView textView = blockView.findViewById(R.id.text_view_block);
         Button editButton = blockView.findViewById(R.id.edit_button);
         Button deleteButton = blockView.findViewById(R.id.delete_button);
@@ -83,6 +82,9 @@ public class PhysActivTab extends Fragment {
         container.addView(blockView);
     }
 
+    /**
+     * Показывает диалог редактирования текста виджета
+     */
     private void showEditDialog(TextView textView) {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("Редактировать виджет");
@@ -101,6 +103,9 @@ public class PhysActivTab extends Fragment {
         builder.create().show();
     }
 
+    /**
+     * Сохраняет тексты всех текущих виджетов в SharedPreferences
+     */
     private void saveWidgetText() {
         SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", requireContext().MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
@@ -113,7 +118,7 @@ public class PhysActivTab extends Fragment {
         }
 
         if (newText.length() > 0) {
-            newText.setLength(newText.length() - 1);
+            newText.setLength(newText.length() - 1); // удаляем последний "|"
         }
 
         editor.putString("widgetText_" + tabIndex, newText.toString());
