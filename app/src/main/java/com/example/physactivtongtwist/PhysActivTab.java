@@ -29,7 +29,7 @@ public class PhysActivTab extends Fragment {
         View view = inflater.inflate(R.layout.fragment_layout, container, false);
         this.container = view.findViewById(R.id.container);
 
-        loadWidgetText(); // Загружаем сохранённые виджеты при открытии фрагмента
+        loadWidgetText();
 
         return view;
     }
