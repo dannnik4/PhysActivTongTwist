@@ -34,9 +34,6 @@ public class PhysActivTab extends Fragment {
         return view;
     }
 
-    /**
-     * Этот метод вызывается из MainActivity при добавлении нового виджета
-     */
     public void onWidgetAdded(String widgetText) {
         Log.d("PhysActivTab", "Добавляем виджет через MainActivity: " + widgetText);
         addWidget(widgetText);
