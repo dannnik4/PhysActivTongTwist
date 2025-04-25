@@ -40,9 +40,6 @@ public class PhysActivTab extends Fragment {
         saveWidgetText();
     }
 
-    /**
-     * Загружает сохранённые виджеты из SharedPreferences
-     */
     private void loadWidgetText() {
         SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", requireContext().MODE_PRIVATE);
         String savedText = preferences.getString("widgetText_" + tabIndex, "");
