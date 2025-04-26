@@ -53,9 +53,6 @@ public class PhysActivTab extends Fragment {
         }
     }
 
-    /**
-     * Добавляет новый виджет в интерфейс
-     */
     private void addWidget(String text) {
         Log.d("PhysActivTab", "Добавляем виджет с текстом: " + text);
         View blockView = LayoutInflater.from(requireContext()).inflate(R.layout.widget_block, container, false);
