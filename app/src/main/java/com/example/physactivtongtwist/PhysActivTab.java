@@ -73,9 +73,6 @@ public class PhysActivTab extends Fragment {
         container.addView(blockView);
     }
 
-    /**
-     * Показывает диалог редактирования текста виджета
-     */
     private void showEditDialog(TextView textView) {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("Редактировать виджет");
