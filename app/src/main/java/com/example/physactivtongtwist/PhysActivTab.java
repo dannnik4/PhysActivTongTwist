@@ -91,9 +91,6 @@ public class PhysActivTab extends Fragment {
         builder.create().show();
     }
 
-    /**
-     * Сохраняет тексты всех текущих виджетов в SharedPreferences
-     */
     private void saveWidgetText() {
         SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", requireContext().MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
