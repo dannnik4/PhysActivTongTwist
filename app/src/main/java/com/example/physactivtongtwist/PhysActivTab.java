@@ -103,7 +103,7 @@ public class PhysActivTab extends Fragment {
         }
 
         if (newText.length() > 0) {
-            newText.setLength(newText.length() - 1); // удаляем последний "|"
+            newText.setLength(newText.length() - 1);
         }
 
         editor.putString("widgetText_" + tabIndex, newText.toString());
