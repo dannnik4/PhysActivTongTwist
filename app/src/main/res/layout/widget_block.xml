@@ -1,11 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    android:layout_margin="8dp"
     android:background="#F5F5F5"
     android:orientation="horizontal"
-    android:padding="2dp">
+    android:padding="12dp"
+    android:elevation="2dp">
 
+    <!-- Левая часть: текст и счётчик -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -16,23 +19,25 @@
             android:id="@+id/text_view_block"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Текст" />
+            android:text="Текст"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="8dp" />
 
+        <!-- Счётчик и кнопки -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="bottom"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/counter_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:gravity="center_vertical"
                 android:text="1"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginEnd="12dp" />
 
             <Button
                 android:id="@+id/button_plus"
@@ -44,23 +49,25 @@
                 android:id="@+id/button_minus"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:text="-" />
+                android:text="-"
+                android:layout_marginStart="8dp"/>
 
             <Button
                 android:id="@+id/button_reset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Обнулить" />
-
+                android:text="Обнулить"
+                android:layout_marginStart="8dp" />
         </LinearLayout>
-
     </LinearLayout>
 
+    <!-- Правая часть: редактировать / удалить -->
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginStart="12dp">
 
         <Button
             android:id="@+id/edit_button"
@@ -72,8 +79,7 @@
             android:id="@+id/delete_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Удалить" />
-
+            android:text="Удалить"
+            android:layout_marginTop="8dp" />
     </LinearLayout>
-
 </LinearLayout>
