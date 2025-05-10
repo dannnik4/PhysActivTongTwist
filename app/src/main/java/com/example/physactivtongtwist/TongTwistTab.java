@@ -31,19 +31,13 @@ public class TongTwistTab extends Fragment {
 
         loadWidgetText();
 
-        Button createWidgetButton = view.findViewById(R.id.WidgetButton);
-        createWidgetButton.setOnClickListener(v -> {
-            Log.d("TongTwistTab", "Нажата кнопка создания виджета");
-            ((MainActivity) requireActivity()).showWidgetDialog(
-                    widgetText -> {
-                        Log.d("TongTwistTab", "Создаётся новый виджет: " + widgetText);
-                        addWidget(widgetText);
-                        saveWidgetText();
-                        loadWidgetText();
-                    }, tabIndex);
-        });
-
         return view;
+    }
+
+    public void onWidgetAdded(String widgetText) {
+        Log.d("TongTwistTab", "Добавляем виджет через MainActivity: " + widgetText);
+        addWidget(widgetText);
+        saveWidgetText();
     }
 
     private void loadWidgetText() {
@@ -64,29 +58,10 @@ public class TongTwistTab extends Fragment {
         View blockView = LayoutInflater.from(requireContext()).inflate(R.layout.widget_block, container, false);
 
         TextView textView = blockView.findViewById(R.id.text_view_block);
-        TextView counterText = blockView.findViewById(R.id.counter_text);
-        Button buttonPlus = blockView.findViewById(R.id.button_plus);
-        Button buttonMinus = blockView.findViewById(R.id.button_minus);
-        Button buttonReset = blockView.findViewById(R.id.button_reset);
         Button editButton = blockView.findViewById(R.id.edit_button);
         Button deleteButton = blockView.findViewById(R.id.delete_button);
 
         textView.setText(text);
-        counterText.setText("0");
-
-        buttonPlus.setOnClickListener(v -> {
-            int count = Integer.parseInt(counterText.getText().toString());
-            count++;
-            counterText.setText(String.valueOf(count));
-        });
-
-        buttonMinus.setOnClickListener(v -> {
-            int count = Integer.parseInt(counterText.getText().toString());
-            if (count > 0) count--;
-            counterText.setText(String.valueOf(count));
-        });
-
-        buttonReset.setOnClickListener(v -> counterText.setText("0"));
 
         editButton.setOnClickListener(v -> showEditDialog(textView));
         deleteButton.setOnClickListener(v -> {
