@@ -48,13 +48,6 @@
                 android:layout_height="wrap_content"
                 android:text="-"
                 android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/button_reset"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Обнулить"
-                android:textSize="12sp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -77,6 +70,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Удалить"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/button_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Обнулить счёт"
             android:textSize="12sp" />
     </LinearLayout>
 
