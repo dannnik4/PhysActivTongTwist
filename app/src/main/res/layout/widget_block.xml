@@ -38,8 +38,7 @@
                 android:id="@+id/button_plus"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:text="+"
-                android:textSize="12sp" />
+                android:text="+" />
 
             <Button
                 android:id="@+id/button_minus"
