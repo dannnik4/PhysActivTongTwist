@@ -64,7 +64,8 @@
             android:layout_height="wrap_content"
             android:text="Редактировать"
             android:textSize="10sp"
-            android:minWidth="60dp" />
+            android:minWidth="60dp"
+            android:paddingLeft="6dp" />
 
         <Button
             android:id="@+id/delete_button"
