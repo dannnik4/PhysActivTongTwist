@@ -75,7 +75,8 @@
             android:layout_height="wrap_content"
             android:text="Удалить"
             android:textSize="10sp"
-            android:minWidth="60dp" />
+            android:minWidth="60dp"
+            android:paddingLeft="6dp" />
 
         <Button
             android:id="@+id/button_reset"
