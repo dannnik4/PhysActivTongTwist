@@ -85,7 +85,8 @@
             android:layout_height="wrap_content"
             android:text="Обнулить счёт"
             android:textSize="10sp"
-            android:minWidth="60dp" />
+            android:minWidth="60dp"
+            android:paddingLeft="6dp" />
     </LinearLayout>
 
 </LinearLayout>
