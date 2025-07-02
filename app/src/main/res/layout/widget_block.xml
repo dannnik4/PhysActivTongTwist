@@ -69,7 +69,8 @@
             android:minWidth="60dp"
             android:paddingLeft="6dp"
             android:paddingRight="6dp"
-            android:paddingTop="0dp" />
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp" />
 
         <Button
             android:id="@+id/delete_button"
